@@ -1,18 +1,18 @@
 -- Creating Tables to Track Employees 
 
---Create Table EmployeeDemographics
---( EmployeeID int, 
---FirstName varchar (50),
---LastName varchar (50),
---Age int, 
---Gender varchar (50)
---)
+Create Table EmployeeDemographics
+( EmployeeID int, 
+FirstName varchar (50),
+LastName varchar (50),
+Age int, 
+Gender varchar (50)
+)
 
---Create Table EmployeeSalary
---( EmployeeID int, 
---JobTitle varchar(50), 
---Salary int
---)
+Create Table EmployeeSalary
+( EmployeeID int, 
+JobTitle varchar(50), 
+Salary int
+)
 
 
 -- Now we will start inserting data into the tables that we just created. 
@@ -41,3 +41,109 @@ INSERT INTO EmployeeSalary VALUES
 (1007, 'Supplier Relations', 41000),
 (1008, 'Salesman', 48000), 
 (1009, 'Accountant', 42000)
+
+/* Select & From Statements 
+*, Top, Distinct, Count, As, Max , Min, Avg 
+*/
+
+Select * 
+From EmployeeDemographics
+
+Select FirstName 
+From EmployeeDemographics
+
+Select LastName 
+From EmployeeDemographics
+
+Select Age 
+From EmployeeDemographics
+
+Select Gender 
+From EmployeeDemographics
+
+Select Top 5 * 
+From EmployeeDemographics
+
+Select Distinct (EmployeeID) 
+From EmployeeDemographics
+
+Select Distinct (Gender) 
+From EmployeeDemographics
+
+Select Count (LastName) 
+From EmployeeDemographics
+ 
+ Select Count (LastName) AS LastNameCount
+From EmployeeDemographics
+
+
+Select MAX(Salary) 
+From EmployeeSalary
+
+Select MIN(Salary) 
+From EmployeeSalary
+
+Select AVG(Salary) 
+From EmployeeSalary
+
+
+
+
+/* 
+Where Statements
+=, <>, <, >, And, Or, Like, Null, Not Null, In 
+Where statements help limit the data, and specify the data you want returned.
+*/
+
+Select * 
+From EmployeeDemographics
+Where FirstName <> 'Jim'
+
+Select * 
+From EmployeeDemographics
+Where FirstName = 'Jim'
+
+Select * 
+From EmployeeDemographics
+Where Age > 30
+
+Select * 
+From EmployeeDemographics
+Where Age >= 30
+
+Select * 
+From EmployeeDemographics
+Where Age <= 30
+
+Select * 
+From EmployeeDemographics
+Where Age <= 30
+AND Gender = 'Male' 
+
+Select * 
+From EmployeeDemographics
+Where Age <= 30
+OR Gender = 'Male' 
+
+Select * 
+From EmployeeDemographics
+Where LastName LIKE '%S%' 
+
+Select * 
+From EmployeeDemographics
+Where LastName LIKE 'S%o%'
+
+/* 
+Group by, Order BY 
+*/
+
+Select * 
+From EmployeeDemographics
+Order By Age Desc, Gender Desc
+
+Select Gender, Count(Gender) As CountGender 
+From EmployeeDemographics
+WHERE Age > 31 
+Group by Gender 
+
+
