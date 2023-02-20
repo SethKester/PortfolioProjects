@@ -146,4 +146,28 @@ From EmployeeDemographics
 WHERE Age > 31 
 Group by Gender 
 
+-- Intermediate SQL Commands 
 
+/* 
+Case Statements
+*/
+
+Select FirstName, LastName, Age,
+Case  
+	When Age > 30 Then 'Old' 
+	Else 'Young' 
+End AS Old_Young
+FROM EmployeeDemographics
+Where Age is NOT NULL
+Order by Age 
+
+Select FirstName, LastName, JobTitle, Salary, 
+CASE 
+	WHEN JobTitle = 'Salesman' THEN Salary + (Salary * .10)
+	When JobTitle = ' Accountant' Then Salary + (Salary * .05) 
+	WHen JobTitle = 'HR' Then Salary + (Salary * .00001)
+	Else Salary + (Salary * .03)
+End As SalaryAfterRaise
+FROM EmployeeDemographics
+Join EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
